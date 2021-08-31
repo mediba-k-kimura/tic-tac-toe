@@ -7,12 +7,15 @@ interface BoardProps {
 }
 
 const Board: React.FC<BoardProps> = ({ squares, onClick }) => {
+  const COLUMN_LENGTH = 3
+  const SQUARE_LENGTH = 3
+
   return (
     <>
-      {[...Array(3)].map((_, i) => {
+      {[...Array(COLUMN_LENGTH)].map((square, i) => {
         return(
           <div className="board-row" key={i}>
-            {[...Array(3)].map((_, j) => {
+            {[...Array(SQUARE_LENGTH)].map((square, j) => {
               const index = 3 * i + j;
               return (
                 <Square
