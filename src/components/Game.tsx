@@ -22,6 +22,18 @@ function calculateWinner(squares: Array<ISquare>) {
   return null;
 }
 
+function useStatus(xIsNext: boolean, winner: ISquare) {
+  const [status, setStatus] = useState<string>("Next player: " + (xIsNext ? "X" : "O"));
+  useEffect(() => {
+    if(winner){
+      setStatus("Winner: " + winner);
+    }else{
+      setStatus("Next player: " + (xIsNext ? "X" : "O"));
+    }
+  }, [xIsNext, winner]);
+  return status;
+}
+
 const Game: React.FC = () => {
   const [history, setHistory] = useState<History[]>([{ squares: Array(9).fill(null) }]);
   const [stepNumber, setStepNumber] = useState<number>(0);
@@ -58,17 +70,6 @@ const Game: React.FC = () => {
   });
 
   const status = useStatus(xIsNext, winner);
-  function useStatus(xIsNext: boolean, winner: ISquare) {
-    const [status, setStatus] = useState<string>("Next player: " + (xIsNext ? "X" : "O"));
-    useEffect(() => {
-      if(winner){
-        setStatus("Winner: " + winner);
-      }else{
-        setStatus("Next player: " + (xIsNext ? "X" : "O"));
-      }
-    }, [xIsNext, winner]);
-    return status;
-  }
 
   return (
     <div className="game">
