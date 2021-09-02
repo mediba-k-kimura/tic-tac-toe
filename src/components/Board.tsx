@@ -1,26 +1,26 @@
 import React from 'react';
 import { ISquare } from '../interface';
-import Square from './Square'
+import Square from './Square';
 interface BoardProps {
     squares: ISquare[];
-    onClick: (i: number) => void;
+    handleClickSquares: (i: number) => void;
 }
 
-const Board: React.FC<BoardProps> = ({ squares, onClick }) => {
+const Board: React.FC<BoardProps> = ({ squares, handleClickSquares }) => {
   const COLUMN_LENGTH = 3
   const SQUARE_LENGTH = 3
 
   return (
     <>
-      {[...Array(COLUMN_LENGTH)].map((square, i) => {
+      {[...Array(COLUMN_LENGTH)].map((_, i) => {
         return(
           <div className="board-row" key={i}>
-            {[...Array(SQUARE_LENGTH)].map((square, j) => {
+            {[...Array(SQUARE_LENGTH)].map((_, j) => {
               const index = 3 * i + j;
               return (
                 <Square
                   value={squares[index]}
-                  onClick={() => onClick(index)}
+                  handleClickSquares={() => handleClickSquares(index)}
                   key={j}
                 ></Square>
               );
