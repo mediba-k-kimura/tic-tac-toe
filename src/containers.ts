@@ -3,12 +3,12 @@ import { clickSquare, jumpToPast } from "./actions";
 import Game from "./components/Game";
 
 // Redux の state を props として適当な形に整形する
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: any, ownProps: any) => {
     return state.game;
 };
 
 // Redux の dispatcher を props として適当な形に整形する
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch: any, ownProps: any) => {
     return{
         handleClick: (index: number) => {
             dispatch(clickSquare(index));

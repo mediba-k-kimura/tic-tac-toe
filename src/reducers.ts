@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { CLICK_SQUARE, JUMP_TO_PAST } from "./actions";
 import { ISquare, ActionTypes } from "./interface";
 
-function calculateWinner(squares: Array<ISquare>) {
+export function calculateWinner(squares: Array<ISquare>) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
