@@ -56,7 +56,7 @@ function game(state = initialState, action: ActionTypes){
           case JUMP_TO_PAST:
             return{
               ...state,
-              StepNumber: action.step,
+              stepNumber: action.step,
               xIsNext: action.step % 2 === 0
             };
 
