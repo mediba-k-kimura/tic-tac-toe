@@ -1,9 +1,11 @@
 import React from "react";
-// import { ISquare, History } from '../interface'
 import Board from './Board'
 import { calculateWinner } from "../reducers";
+import { PropsFromRedux } from "../containers"
 
-const Game: React.FC = (props: any) => {
+type GameProps = PropsFromRedux;
+
+const Game = (props: GameProps) => {
     const history = props.history;
     const current = history[props.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -23,8 +25,6 @@ const Game: React.FC = (props: any) => {
     } else {
       status = "Next player: " + (props.xIsNext ? "X" : "O");
     }
-
-  // const status = useStatus(xIsNext, winner);
 
   return (
     <div className="game">

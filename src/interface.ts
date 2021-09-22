@@ -11,3 +11,9 @@ interface JumpToPastTypes{
   step: number;
 }
 export type ActionTypes = ClickSquareTypes | JumpToPastTypes;
+
+export interface StateType {
+  history:History[];
+  stepNumber: number;
+  xIsNext: boolean;
+}
