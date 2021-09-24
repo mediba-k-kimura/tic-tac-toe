@@ -1,6 +1,6 @@
 // action types
-export const CLICK_SQUARE = "CLICK_SQUARE";
-export const JUMP_TO_PAST = "JUMP_TO_PAST";
+export const CLICK_SQUARE = "CLICK_SQUARE" as const;
+export const JUMP_TO_PAST = "JUMP_TO_PAST" as const;
 
 // action creators
 export function clickSquare(index: number){

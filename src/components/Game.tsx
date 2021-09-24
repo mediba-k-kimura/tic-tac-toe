@@ -9,6 +9,7 @@ const Game = (props: GameProps) => {
     const history = props.history;
     const current = history[props.stepNumber];
     const winner = calculateWinner(current.squares);
+    const status = winner ? `Winner: ${winner}` : `Next player: ${props.xIsNext ? "X" : "O"}`;
 
     const moves = history.map((step: any, move: number) => {
       const desc = move ? `Go to move #` + move : "Go to game start";
@@ -18,13 +19,6 @@ const Game = (props: GameProps) => {
         </li>
       );
     });
-
-    let status;
-    if (winner) {
-      status = "Winner: " + winner;
-    } else {
-      status = "Next player: " + (props.xIsNext ? "X" : "O");
-    }
 
   return (
     <div className="game">
