@@ -2,26 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ISquare, History } from '../interface'
 import Board from './Board'
 
-function calculateWinner(squares: Array<ISquare>) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-  }
-  return null;
-}
-
 function useStatus(xIsNext: boolean, winner: ISquare) {
   const [status, setStatus] = useState<string>("Next player: " + (xIsNext ? "X" : "O"));
   useEffect(() => {
@@ -35,9 +15,7 @@ function useStatus(xIsNext: boolean, winner: ISquare) {
 }
 
 const Game: React.FC = () => {
-  const [history, setHistory] = useState<History[]>([{ squares: Array(9).fill(null) }]);
-  const [stepNumber, setStepNumber] = useState<number>(0);
-  const [xIsNext, setXIsNext] = useState<boolean>(true);
+
 
   const handleClick = (i: number) => {
     const _history = history.slice(0, stepNumber + 1);
