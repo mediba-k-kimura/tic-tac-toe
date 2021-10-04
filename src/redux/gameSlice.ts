@@ -46,9 +46,11 @@ export const gameSlice = createSlice({
   }
 })
 
-export const { clickSquare, jumpToPast } = gameSlice.actions
-
 // selectors などの他のコードは、インポートされた `RootState`型を使用
 export const selectGame = (state: RootState) => state.game
 
+// Reducer をエクスポート
 export default gameSlice.reducer
+
+// actions creator をエクスポート
+export const { clickSquare, jumpToPast } = gameSlice.actions

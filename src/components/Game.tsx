@@ -1,4 +1,4 @@
-import { clickSquare, jumpToPast } from '../redux/actions'
+import { clickSquare, jumpToPast } from '../redux/gameSlice'
 import { useAppSelector, useAppDispatch } from '../redux/hooks'
 import { calculateWinner } from '../utils'
 import Board from './Board'
